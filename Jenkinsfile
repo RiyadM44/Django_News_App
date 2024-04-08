@@ -1,6 +1,14 @@
 pipeline {
     agent any
     stages {
+        stage('SSH to Instance') {
+            steps {
+                sshagent(['849d5fe9-ae71-4c4e-9167-74ba2bb3c39c']) {
+                    sh 'ssh ubuntu@3.65.228.31'
+                }
+            }
+        }
+
         stage('Stop and Remove Container') {
             steps {
                 script {
