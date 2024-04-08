@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Dockering...'
-                sh 'sudo docker run -p 80:80 -d --name apache httpd'
+                sh 'python3 manage.py runserver 0.0.0.0:8000'
             }
         }
     }
