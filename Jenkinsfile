@@ -5,7 +5,13 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Dockering...'
-                sh 'python3 manage.py runserver 0.0.0.0:8000'
+                script {
+                    // Change directory to your news_Application
+                    dir('path/to/your/news_Application') {
+                        // Run the command for Apache
+                        sh 'python3 manage.py runserver 0.0.0.0:8000'
+                    }
+                }
             }
         }
     }
