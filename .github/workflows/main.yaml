@@ -40,8 +40,6 @@ jobs:
       - name: SSH into the server
         run: ssh -i ~/.ssh/RHY.pem ubuntu@3.64.130.70
  
-      - name: Pull Docker image
-        run: docker pull riyadm44/djangonewsimage:latest
  
       - name: Trigger Jenkins Pipeline
         run: |
