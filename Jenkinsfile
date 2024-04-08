@@ -1,6 +1,5 @@
 pipeline {
     agent any
-
     stages {
         stage('Stop and Remove Container') {
             steps {
@@ -16,6 +15,9 @@ pipeline {
 
         stage('Run Docker Container') {
             steps {
+                // Pull the latest version of the Docker image
+                sh 'docker pull riyadm44/djangonewsimage:latest'
+
                 // Run the Docker container with the specified options
                 sh 'docker run -d -p 8000:8000 --name ry riyadm44/djangonewsimage'
             }
