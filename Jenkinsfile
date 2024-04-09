@@ -3,8 +3,9 @@ pipeline {
     stages {
         stage('SSH to First Instance') {
             steps {
-                sshagent(['fb8cd24f-5493-495b-a966-c2a39b0e3d91']) {
-                    sh 'ssh ubuntu@18.196.62.224'
+                script {
+                    // SSH to the first instance using the provided key
+                    sh 'ssh -i RHY.pem ubuntu@18.196.62.224'
                 }
             }
         }
@@ -21,7 +22,7 @@ pipeline {
             }
         }
 
-        stage('Run Docker Container On First Intance') {
+        stage('Run Docker Container On First Instance') {
             steps {
                 // Pull the latest version of the Docker image
                 sh 'docker pull riyadm44/djangonewsimage:latest'
