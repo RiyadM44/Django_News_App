@@ -5,3 +5,4 @@ newsapi-python
 psycopg2-binary
 gunicorn
 uwsgi
+Pillow
