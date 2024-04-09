@@ -40,9 +40,11 @@ jobs:
       - name: SSH into the server
         run: ssh -i ~/.ssh/RHY.pem ubuntu@3.121.234.154
   
-      - name: Trigger Jenkins Pipeline
-        run: |
-          curl -X POST \
-            -u RY:116e68d1548b7e6c2baa1c900a4177f438 \
-            -d '' \
-            http://3.121.234.154:8080/job/RY/build
+      - name: Making Directory Yusuf
+        run: mkdir Yusuf
+      # - name: Trigger Jenkins Pipeline
+      #   run: |
+      #     curl -X POST \
+      #       -u RY:116e68d1548b7e6c2baa1c900a4177f438 \
+      #       -d '' \
+      #       http://3.121.234.154:8080/job/RY/build
