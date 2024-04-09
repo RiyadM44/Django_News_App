@@ -5,10 +5,10 @@ from .forms import TextInputForm
 def save_text_input(request):
     if request.method == 'POST':
         form = TextInputForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('')
+        # if form.is_valid():
+        form.save()
+            # return redirect('')
             # return redirect('success_url')
-    else:
-        form = TextInputForm()
+    # else:
+    #     form = TextInputForm()
     return render(request, 'hello.html', {'form': form})
