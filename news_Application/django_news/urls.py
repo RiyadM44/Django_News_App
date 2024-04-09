@@ -4,5 +4,5 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.hello_world, name='hello_world'),
+    path('save-text-input/', save_text_input, name='save_text_input'),
 ]

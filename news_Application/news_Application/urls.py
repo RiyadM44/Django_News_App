@@ -21,7 +21,6 @@ from .views import save_text_input
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('django_news.urls')),
-    path('save-text-input/', save_text_input, name='save_text_input'),
 ]
 
  
