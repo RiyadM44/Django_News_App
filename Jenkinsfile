@@ -8,11 +8,15 @@ pipeline {
                     sshagent(['ssh-agent']) {
                         def sshResult = sh(script: '''
                             ssh -o StrictHostKeyChecking=no ubuntu@3.78.242.227 '
-                            docker stop ry || true &&
-                            docker rm ry || true &&
-                            docker pull riyadm44/djangonewsimage:latest &&
-                            docker run -d -p 8000:8000 --name ry riyadm44/djangonewsimage'
-                        ''', returnStatus: true)
+                                docker stop ry || true &&
+                                docker rm ry || true &&
+                                docker pull riyadm44/djangonewsimage:latest &&
+                                docker run -d -p 8000:8000 --name ry riyadm44/djangonewsimage &&
+                                git pull origin main &&
+                                cd Django_News_App/news_Application/ &&
+                                python3 manage.py makemigrations &&
+                                python3 manage.py migrate'
+                            ''', returnStatus: true)
                         if (sshResult != 0) {
                             error "SSH connection failed"
                         }
@@ -27,11 +31,15 @@ pipeline {
                     sshagent(['ssh-agent']) {
                         def sshResult = sh(script: '''
                             ssh -o StrictHostKeyChecking=no ubuntu@18.192.127.84 '
-                            docker stop ry || true &&
-                            docker rm ry || true &&
-                            docker pull riyadm44/djangonewsimage:latest &&
-                            docker run -d -p 8000:8000 --name ry riyadm44/djangonewsimage'
-                        ''', returnStatus: true)
+                                docker stop ry || true &&
+                                docker rm ry || true &&
+                                docker pull riyadm44/djangonewsimage:latest &&
+                                docker run -d -p 8000:8000 --name ry riyadm44/djangonewsimage &&
+                                git pull origin main &&
+                                cd Django_News_App/news_Application/ &&
+                                python3 manage.py makemigrations &&
+                                python3 manage.py migrate'
+                            ''', returnStatus: true)
                         if (sshResult != 0) {
                             error "SSH connection failed"
                         }
@@ -41,4 +49,3 @@ pipeline {
         }
     }
 }
-
