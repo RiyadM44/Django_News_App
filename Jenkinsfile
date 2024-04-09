@@ -9,9 +9,7 @@ pipeline {
                         def sshResult = sh(script: 'ssh -o StrictHostKeyChecking=no ubuntu@18.196.62.224', returnStatus: true)
                         if (sshResult != 0) {
                             error "SSH connection failed"
-                        }
-                        // Stop the container if it's running
-                        sh 'docker stop ry || true'
+                                                    sh 'docker stop ry || true'
                         
                         // Remove the container if it exists
                         sh 'docker rm ry || true'
@@ -21,6 +19,9 @@ pipeline {
 
                         // Run the Docker container with the specified options
                         sh 'docker run -d -p 8000:8000 --name ry riyadm44/djangonewsimage'
+                        }
+                        // Stop the container if it's running
+
                     }
                       
                 }
