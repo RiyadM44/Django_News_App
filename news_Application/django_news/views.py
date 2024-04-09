@@ -9,6 +9,6 @@ def save_text_input(request):
         form.save()
             # return redirect('')
             # return redirect('success_url')
-    # else:
-    #     form = TextInputForm()
+    else:
+        form = TextInputForm()
     return render(request, 'hello.html', {'form': form})
