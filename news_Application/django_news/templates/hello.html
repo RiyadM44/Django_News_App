@@ -7,10 +7,12 @@
 </head>
 <body>
     <h1>Welcome from the world of toilets and hasaki</h1>
-    <form>
-        <label for="exampleInput">Example Input:</label>
-        <input type="text" id="exampleInput" name="exampleInput" placeholder="Enter your text here">
+    <!-- your_template.html -->
+    <form method="post" action="{% url 'save_text_input' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
         <button type="submit">Submit</button>
     </form>
+  
 </body>
 </html>
