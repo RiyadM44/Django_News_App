@@ -3,9 +3,8 @@ pipeline {
     stages {
         stage('SSH to First Instance') {
             steps {
-                script {
-                    // SSH to the first instance using the provided key
-                    sh 'ssh -i RHY.pem ubuntu@18.196.62.224'
+                sshagent(['ssh-agent']) {
+                    sh 'ssh -tt -o StrictHostKeyChecking=no ubuntu@18.196.62.224'
                 }
             }
         }
