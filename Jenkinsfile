@@ -1,15 +1,15 @@
 pipeline {
     agent any
     stages {
-        stage('SSH to Instance') {
+        stage('SSH to First Instance') {
             steps {
-                sshagent(['849d5fe9-ae71-4c4e-9167-74ba2bb3c39c']) {
+                sshagent(['fb8cd24f-5493-495b-a966-c2a39b0e3d91']) {
                     sh 'ssh ubuntu@18.196.62.224'
                 }
             }
         }
 
-        stage('Stop and Remove Container') {
+        stage('Stop and Remove Container From First Instance') {
             steps {
                 script {
                     // Stop the container if it's running
@@ -21,7 +21,7 @@ pipeline {
             }
         }
 
-        stage('Run Docker Container') {
+        stage('Run Docker Container On First Intance') {
             steps {
                 // Pull the latest version of the Docker image
                 sh 'docker pull riyadm44/djangonewsimage:latest'
