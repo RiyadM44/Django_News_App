@@ -37,11 +37,6 @@ jobs:
       - name: Update known_hosts file
         run: ssh-keyscan -H 3.121.234.154 >> ~/.ssh/known_hosts
 
-      - name: SSH into the server and create directory Yusuf
-        run: |
-          ssh -i ~/.ssh/RHY.pem ubuntu@3.121.234.154 '
-            mkdir -p ~/Yusuf && echo "helloworld" > ~/Yusuf/helloworld'
-
       - name: Trigger Jenkins Pipeline
         run: |
           curl -X POST \
