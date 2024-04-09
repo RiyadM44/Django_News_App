@@ -5,6 +5,7 @@ class TextInput(models.Model):
     ID = models.AutoField(primary_key=True)
     # Field for text input
     text_input = models.CharField(max_length=50)
+    image = models.ImageField(upload_to='static/')
 
     class Meta:
         # Specify the table name
