@@ -25,20 +25,20 @@ jobs:
       - name: Push Docker image
         run: docker push riyadm44/djangonewsimage:latest
  
-      - name: Create SSH directory
-        run: mkdir -p ~/.ssh
+      # - name: Create SSH directory
+      #   run: mkdir -p ~/.ssh
  
-      - name: Write private key to file
-        run: echo "${{ secrets.KEY }}" > ~/.ssh/RHY.pem
+      # - name: Write private key to file
+      #   run: echo "${{ secrets.KEY }}" > ~/.ssh/RHY.pem
  
-      - name: Set permissions for private key file
-        run: chmod 600 ~/.ssh/RHY.pem
+      # - name: Set permissions for private key file
+      #   run: chmod 600 ~/.ssh/RHY.pem
  
-      - name: Update known_hosts file
-        run: ssh-keyscan -H 3.64.130.70 >> ~/.ssh/known_hosts
+      # - name: Update known_hosts file
+      #   run: ssh-keyscan -H 3.121.234.154 >> ~/.ssh/known_hosts
  
-      - name: SSH into the server
-        run: ssh -i ~/.ssh/RHY.pem ubuntu@3.64.130.70
+      # - name: SSH into the server
+      #   run: ssh -i ~/.ssh/RHY.pem ubuntu@3.121.234.154
   
       - name: Trigger Jenkins Pipeline
         run: |
