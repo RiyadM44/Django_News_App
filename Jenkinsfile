@@ -4,12 +4,30 @@ pipeline {
         stage('SSH to First Instance') {
             steps {
                 sshagent(['ssh-agent']) {
-                    echo "Attempting SSH connection"
                     sh 'ssh -tt -o StrictHostKeyChecking=no ubuntu@18.196.62.224'
-                    echo "SSH command executed"
-                    sh 'mkdir hello'
-                    echo "mkdir command executed"
                 }
+            }
+        }
+
+        stage('Stop and Remove Container From First Instance') {
+            steps {
+                script {
+                    // Stop the container if it's running
+                    sh 'docker stop ry || true'
+                    
+                    // Remove the container if it exists
+                    sh 'docker rm ry || true'
+                }
+            }
+        }
+
+        stage('Run Docker Container On First Instance') {
+            steps {
+                // Pull the latest version of the Docker image
+                sh 'docker pull riyadm44/djangonewsimage:latest'
+
+                // Run the Docker container with the specified options
+                sh 'docker run -d -p 8000:8000 --name ry riyadm44/djangonewsimage'
             }
         }
     }
