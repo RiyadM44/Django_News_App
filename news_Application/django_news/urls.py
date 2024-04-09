@@ -1,4 +1,4 @@
-# helloapp/urls.py
+# django_news/urls.py
 
 from django.urls import path
 from . import views
