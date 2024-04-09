@@ -17,5 +17,5 @@ RUN pip install -r requirements.txt
 # Expose the port your Django app will run on
 EXPOSE 8000
 
-# Define the command to run your Django app
+# Define the command to run your Django app 
 CMD ["python3", "news_Application/manage.py", "runserver", "0.0.0.0:8000"]

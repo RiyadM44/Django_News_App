@@ -7,7 +7,7 @@ def save_text_input(request):
         form = TextInputForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('hello.html')
+            return redirect('')
             # return redirect('success_url')
     else:
         form = TextInputForm()
