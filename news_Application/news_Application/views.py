@@ -10,4 +10,4 @@ def save_text_input(request):
             return redirect('success_url')
     else:
         form = TextInputForm()
-    return render(request, 'your_template.html', {'form': form})
+    return render(request, 'hello.html', {'form': form})
