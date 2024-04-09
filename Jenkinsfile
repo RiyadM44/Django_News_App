@@ -4,7 +4,7 @@ pipeline {
         stage('SSH to Instance') {
             steps {
                 sshagent(['849d5fe9-ae71-4c4e-9167-74ba2bb3c39c']) {
-                    sh 'ssh ubuntu@3.65.228.31'
+                    sh 'ssh ubuntu@18.196.62.224'
                 }
             }
         }
