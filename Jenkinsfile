@@ -12,8 +12,9 @@ pipeline {
                                 docker rm ry || true &&
                                 docker pull riyadm44/djangonewsimage:latest &&
                                 docker run -d -p 8000:8000 --name ry riyadm44/djangonewsimage &&
+                                cd Django_News_App/ &&
                                 git pull origin main &&
-                                cd Django_News_App/news_Application/ &&
+                                cd news_Application/ &&
                                 python3 manage.py makemigrations &&
                                 python3 manage.py migrate'
                             ''', returnStatus: true)
@@ -35,8 +36,9 @@ pipeline {
                                 docker rm ry || true &&
                                 docker pull riyadm44/djangonewsimage:latest &&
                                 docker run -d -p 8000:8000 --name ry riyadm44/djangonewsimage &&
+                                cd Django_News_App/ &&
                                 git pull origin main &&
-                                cd Django_News_App/news_Application/ &&
+                                cd news_Application/ &&
                                 python3 manage.py makemigrations &&
                                 python3 manage.py migrate'
                             ''', returnStatus: true)
