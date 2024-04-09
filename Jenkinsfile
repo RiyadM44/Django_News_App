@@ -3,12 +3,16 @@ pipeline {
     stages {
         stage('SSH to First Instance') {
             steps {
-                sshagent(['ssh-agent']) {
-                    sh 'ssh -o StrictHostKeyChecking=no ubuntu@18.196.62.224'
-                    sh 'mkdir saiid'
+                script {
+                    sshagent(['ssh-agent']) {
+                        sh 'ssh -o StrictHostKeyChecking=no ubuntu@18.196.62.224 "mkdir ~/saiid"'
+                    }
                 }
             }
         }
+    }
+}
+
 
         // stage('Stop and Remove Container From First Instance') {
         //     steps {
@@ -31,5 +35,5 @@ pipeline {
         //         sh 'docker run -d -p 8000:8000 --name ry riyadm44/djangonewsimage'
         //     }
         // }
-    }
-}
+//     }
+// }
