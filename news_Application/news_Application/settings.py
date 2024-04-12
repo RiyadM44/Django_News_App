@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
+# import mimetypes
+
+# mimetypes.add_type("text/css", ".css", True)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -67,6 +70,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.static',
             ],
         },
     },
@@ -134,14 +138,18 @@ CSRF_TRUSTED_ORIGINS = ['https://newsaggregator.upskillconnect.com']
 
 # settings.py
 
+# STATIC_URL = '/static/'
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
+    BASE_DIR / 'static',
 ]
 
 
 # STATIC_ROOT = '../static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# STATIC_ROOT = 'news_Application/new_Application/static/'
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+# STATIC_ROOT=/var/www/html/
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field

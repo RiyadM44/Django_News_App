@@ -2,7 +2,12 @@
 from django import forms
 from .models import TextInput
 
-class TextInputForm(forms.ModelForm):
+# class TextInputForm(forms.ModelForm):
+#     class Meta:
+#         model = TextInput
+#         fields = ['text_input']
+
+class NewsDataForm(forms.ModelForm):
     class Meta:
-        model = TextInput
-        fields = ['text_input']
+        model = NewsData
+        fields = ['title', 'description', 'image_url', 'news_url']
