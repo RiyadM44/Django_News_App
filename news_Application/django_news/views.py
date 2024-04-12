@@ -2,7 +2,7 @@
 from django.shortcuts import render, redirect
 from .forms import TextInputForm
 from django.http import JsonResponse
-from .models import NewsData
+# from .models import NewsData
 
 # def save_text_input(request):
 #     if request.method == 'POST':
