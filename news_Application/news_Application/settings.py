@@ -90,7 +90,7 @@ DATABASES = {
         'NAME': 'postgres',
         'USER': 'postgres',
         'PASSWORD': '1234',
-        'HOST': '3.78.242.227',
+        'HOST': 'RYStack-ALB-ipPjbVgF8Ath-244666926.eu-central-1.elb.amazonaws.com',
         'PORT': '5432',
     }
 }
