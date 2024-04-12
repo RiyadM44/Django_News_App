@@ -10,13 +10,13 @@
 </head>
 <body>
 
-<div class="navbar">
-    <a href="index.html" class="navbar-left">News Aggregator</a>
-    <div class="navbar-middle">
-        <a href="index.html">Home</a>
-        <a href="News.html">News</a>
-    </div>
-</div>
+    <div class="navbar">
+        <a href="{% url 'save_text_input' %}" class="navbar-left">News Aggregator</a>
+        <div class="navbar-middle">
+            <a href="{% url 'save_text_input' %}">Home</a>
+            <a href="{% url 'show_news' %}">News</a>
+        </div>
+    </div>    
 
 <div class="welcome-container">
     <header class="header">
