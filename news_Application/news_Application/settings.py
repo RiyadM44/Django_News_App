@@ -141,14 +141,13 @@ CSRF_TRUSTED_ORIGINS = ['https://newsaggregator.upskillconnect.com']
 # STATIC_URL = '/static/'
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-    # BASE_DIR / 'static',
+    os.path.join(BASE_DIR, 'django_news', 'static'),
 ]
 
 
 # STATIC_ROOT = '../static/'
 # STATIC_ROOT = 'news_Application/new_Application/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # STATIC_ROOT = BASE_DIR / 'staticfiles'
 # STATIC_ROOT=/var/www/html/
 
