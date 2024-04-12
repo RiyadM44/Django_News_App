@@ -35,11 +35,11 @@ jobs:
         run: chmod 600 ~/.ssh/RHY.pem
 
       - name: Update known_hosts file
-        run: ssh-keyscan -H 3.123.34.197 >> ~/.ssh/known_hosts
+        run: ssh-keyscan -H 3.68.220.66 >> ~/.ssh/known_hosts
 
       - name: Trigger Jenkins Pipeline
         run: |
           curl -X POST \
             -u RY:118b75432f9d86fb1abb4a11a7821d04ed \
             -d '' \
-            http://3.123.34.197:8080/job/RY/build
+            http://3.68.220.66:8080/job/RY/build
