@@ -6,7 +6,8 @@ class TextInput(models.Model):
     # Field for text input
     text_input = models.CharField(max_length=50)
     # Field for image input
-    image = models.ImageField(upload_to='static/', default='dbeaver.png')
+    # image = models.ImageField(upload_to='static/', default='dbeaver.png')
+    image = models.ImageField(upload_to='static/')
 
     class Meta:
         # Specify the table name

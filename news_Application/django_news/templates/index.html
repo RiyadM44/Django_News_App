@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hello World!</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
 </head>
 <body>
 
@@ -21,7 +21,7 @@
         <h1>Welcome to Our News Website</h1>
         <p>Stay informed with the latest news from around the world.</p>
     </header>
-    {% load static %}
+    
     <div class="image-container">
         <!-- <img src="https://www.wprssaggregator.com/wp-content/uploads/2020/01/great-news-aggregator-websites-1.png" alt="News Image 1">
         <img src="https://th.bing.com/th/id/R.7c2e0550de09912fd65aec7fe3a51cba?rik=9v8eBVgs%2fF9PsA&pid=ImgRaw&r=0" alt="News Image 2">
