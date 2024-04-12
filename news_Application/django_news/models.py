@@ -14,16 +14,16 @@ class TextInput(models.Model):
         # Specify the table name
         db_table = 'textinputting'
 
-class NewsData(models.Model):
-    title = models.CharField(max_length=255)
-    description = models.TextField()
-    image_url = models.URLField()
-    news_url = models.URLField()
+# class NewsData(models.Model):
+#     title = models.CharField(max_length=255)
+#     description = models.TextField()
+#     image_url = models.URLField()
+#     news_url = models.URLField()
 
-    def __str__(self):
-        return self.title
+#     def __str__(self):
+#         return self.title
 
-    class Meta:
-        # Specify the table name
-        db_table = 'newsDataTable'
+#     class Meta:
+#         # Specify the table name
+#         db_table = 'newsDataTable'
 
