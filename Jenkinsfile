@@ -25,7 +25,7 @@ pipeline {
                     }
                 }
             }
-        }
+        } 
         stage('Deploy on Second Instance') {
             steps {
                 script {
