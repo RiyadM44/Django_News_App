@@ -10,6 +10,7 @@ pipeline {
                             ssh -o StrictHostKeyChecking=no ubuntu@3.75.90.22 '
                                 docker stop ry || true &&
                                 docker rm ry || true &&
+                                docker rmi riyadm44/djangonewsimage &&
                                 docker pull riyadm44/djangonewsimage:latest &&
                                 docker run -d -p 8000:8000 --name ry riyadm44/djangonewsimage &&
                                 cd Django_News_App/ &&
@@ -34,6 +35,7 @@ pipeline {
                             ssh -o StrictHostKeyChecking=no ubuntu@3.79.59.109 '
                                 docker stop ry || true &&
                                 docker rm ry || true &&
+                                docker rmi riyadm44/djangonewsimage &&
                                 docker pull riyadm44/djangonewsimage:latest &&
                                 docker run -d -p 8000:8000 --name ry riyadm44/djangonewsimage &&
                                 cd Django_News_App/ &&
