@@ -11,4 +11,8 @@ def save_text_input(request):
             # return redirect('success_url')
     else:
         form = TextInputForm()
-    return render(request, 'hello.html', {'form': form})
+    return render(request, 'index.html', {'form': form})
+
+def show_news(request):
+    # Add any necessary logic here
+    return render(request, 'News.html')
