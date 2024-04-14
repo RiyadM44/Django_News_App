@@ -18,7 +18,7 @@ def upload_image(request):
             return redirect('save_text_input')  # Redirect to the page where the carousel is displayed
     else:
         form = ImageUploadForm()
-    return render(request, 'index.html', {'form': form})
+    return render(request, 'upload_image.html', {'form': form})
 
 # def save_text_input(request):
 #     if request.method == 'POST':
