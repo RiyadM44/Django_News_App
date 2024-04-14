@@ -1,12 +1,11 @@
 # forms.py
 from django import forms
-import models
+from .models import CarouselImage
 
 class ImageUploadForm(forms.ModelForm):
     class Meta:
-        model = models.CarouselImage
+        model = CarouselImage
         fields = ['image']
-
 
 # class TextInputForm(forms.ModelForm):
 #     class Meta:
