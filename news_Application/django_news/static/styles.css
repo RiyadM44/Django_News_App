@@ -128,6 +128,7 @@ body {
     position: relative;
     display: none;
     width: 100%;
+    height: 400px;
 }
 
 .carousel-slide img {
@@ -138,11 +139,12 @@ body {
 /* Slide Description */
 .slide-description {
     position: absolute;
-    bottom: 10px; /* Adjust as needed */
-    left: 10px; /* Adjust as needed */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
     color: white;
-    padding: 5px;
+    padding: 10px;
 }
 
 /* Previous and Next Buttons */
@@ -168,3 +170,4 @@ body {
 .next-btn {
     right: 0;
 }
+
