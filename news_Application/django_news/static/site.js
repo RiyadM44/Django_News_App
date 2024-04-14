@@ -3,12 +3,17 @@ showSlides();
 
 function showSlides() {
     let slides = document.getElementsByClassName("carousel-slide");
-    for (let i = 0; i < slides.length; i++) {
-        slides[i].style.opacity = "0"; // Initially set opacity to 0
-    }
     slideIndex++;
     if (slideIndex > slides.length) {slideIndex = 1}
-    slides[slideIndex-1].style.opacity = "1"; // Set opacity to 1 to show current slide
+    
+    // Slide all slides to the left
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.left = "-100%";
+    }
+    
+    // Move the current slide into view from the right
+    slides[slideIndex-1].style.left = "0";
+    
     setTimeout(showSlides, 4000); // Change image every 4 seconds
 }
 
@@ -17,40 +22,19 @@ function moveSlide(n) {
     let slides = document.getElementsByClassName("carousel-slide");
     if (slideIndex > slides.length) {slideIndex = 1}
     if (slideIndex < 1) {slideIndex = slides.length}
+    
+    // Slide all slides to the left
     for (let i = 0; i < slides.length; i++) {
-        slides[i].style.opacity = "0"; // Hide all slides
+        slides[i].style.left = "-100%";
     }
-    slides[slideIndex-1].style.opacity = "1"; // Show current slide
+    
+    // Move the current slide into view from the right
+    slides[slideIndex-1].style.left = "0";
 }
 
 // function showSlides() {
 //     let slides = document.getElementsByClassName("carousel-slide");
 //     for (let i = 0; i < slides.length; i++) {
-//         slides[i].style.left = "100%"; // Initially position slides outside container
-//     }
-//     slideIndex++;
-//     if (slideIndex > slides.length) {slideIndex = 1}
-//     slides[slideIndex-1].style.left = "0"; // Move current slide into view
-//     setTimeout(showSlides, 4000); // Change image every 4 seconds
-// }
-
-// function moveSlide(n) {
-//     slideIndex += n;
-//     let slides = document.getElementsByClassName("carousel-slide");
-//     if (slideIndex > slides.length) {slideIndex = 1}
-//     if (slideIndex < 1) {slideIndex = slides.length}
-//     for (let i = 0; i < slides.length; i++) {
-//         slides[i].style.left = "100%"; // Move all slides outside container
-//     }
-//     slides[slideIndex-1].style.left = "0"; // Move current slide into view
-// }
-
-// let slideIndex = 0;
-// showSlides();
-
-// function showSlides() {
-//     let slides = document.getElementsByClassName("carousel-slide");
-//     for (let i = 0; i < slides.length; i++) {
 //         slides[i].style.display = "none";
 //     }
 //     slideIndex++;
@@ -69,3 +53,5 @@ function moveSlide(n) {
 //     }
 //     slides[slideIndex-1].style.display = "block";
 // }
+
+
