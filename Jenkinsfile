@@ -40,7 +40,9 @@ pipeline {
                                 docker run -d -p 8000:8000 --name ry riyadm44/djangonewsimage &&
                                 cd Django_News_App/ &&
                                 git pull origin main &&
-                                cd news_Application/ '
+                                cd news_Application/ &&
+                                python3 manage.py makemigrations &&
+                                python3 manage.py migrate'
                             ''', returnStatus: true)
                         if (sshResult != 0) {
                             error "SSH connection failed"
