@@ -1,8 +1,7 @@
 # views.py
 from django.shortcuts import render, redirect
-from .forms import TextInputForm
-from django.http import JsonResponse
 from .forms import ImageUploadForm
+# from django.http import JsonResponse
 
 def save_text_input(request):
     return render(request, 'index.html')
