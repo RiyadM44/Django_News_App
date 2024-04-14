@@ -47,6 +47,12 @@
         <button class="next-btn" onclick="moveSlide(1)">❯</button>
     </div>
     
+    <h1>Upload Image</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Upload</button>
+    </form>
 
     <div class="about-section">
         <h2>About Us</h2>

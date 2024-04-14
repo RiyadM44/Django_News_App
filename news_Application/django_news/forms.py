@@ -1,11 +1,17 @@
 # forms.py
 from django import forms
-from .models import TextInput
+import models
 
-class TextInputForm(forms.ModelForm):
+class ImageUploadForm(forms.ModelForm):
     class Meta:
-        model = TextInput
-        fields = ['text_input']
+        model = models.CarouselImage
+        fields = ['image']
+
+
+# class TextInputForm(forms.ModelForm):
+#     class Meta:
+#         model = TextInput
+#         fields = ['text_input']
 
 # class NewsDataForm(forms.ModelForm):
 #     class Meta:

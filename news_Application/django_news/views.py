@@ -2,7 +2,24 @@
 from django.shortcuts import render, redirect
 from .forms import TextInputForm
 from django.http import JsonResponse
-# from .models import NewsData
+from .forms import ImageUploadForm
+
+def save_text_input(request):
+    return render(request, 'index.html')
+
+def show_news(request):
+    # Add any necessary logic here
+    return render(request, 'News.html')
+
+def upload_image(request):
+    if request.method == 'POST':
+        form = ImageUploadForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('save_text_input')  # Redirect to the page where the carousel is displayed
+    else:
+        form = ImageUploadForm()
+    return render(request, 'index.html', {'form': form})
 
 # def save_text_input(request):
 #     if request.method == 'POST':
@@ -14,13 +31,6 @@ from django.http import JsonResponse
 #     else:
 #         form = TextInputForm()
 #     return render(request, 'index.html', {'form': form})
-
-def save_text_input(request):
-    return render(request, 'index.html')
-
-def show_news(request):
-    # Add any necessary logic here
-    return render(request, 'News.html')
 
 # def create_news(request):
 #     if request.method == 'POST':
