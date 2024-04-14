@@ -58,7 +58,7 @@ body {
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
-    /* max-width: 600px; */
+    max-width: 600px;
 }
 
 .image-container img {
@@ -117,14 +117,13 @@ body {
 /* Carousel Code */
 .carousel-container {
     position: relative;
-    width: 80%;
+    width: 100%;
     overflow: hidden;
 }
 
 .carousel-slide {
-    position: absolute;
+    display: none;
     width: 100%;
-    transition: left 0.5s ease;
 }
 
 .carousel-slide img {
