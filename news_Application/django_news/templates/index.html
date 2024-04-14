@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hello World!</title>
     <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
-    <!-- <link href="{% static 'styles.css' %}" rel="stylesheet"> -->
 </head>
 <body>
 
@@ -25,18 +24,33 @@
     </header>
     
     <div class="image-container">
-        <!-- <img src="https://www.wprssaggregator.com/wp-content/uploads/2020/01/great-news-aggregator-websites-1.png" alt="News Image 1">
-        <img src="https://th.bing.com/th/id/R.7c2e0550de09912fd65aec7fe3a51cba?rik=9v8eBVgs%2fF9PsA&pid=ImgRaw&r=0" alt="News Image 2">
-        <img src="https://th.bing.com/th/id/OIP.Jyjxutwy3KjDvJA1S4jn3gHaCy?rs=1&pid=ImgDetMain" alt="News Image 3"> -->
-        <img src="{% static 'News Aggregator.png' %}" alt="News Aggregator">
         <img src="{% static 'Breaking News.jpg' %}" alt="Breaking News">
         <img src="{% static 'Headlines.png' %}" alt="Headline">
     </div>
+
+    <div class="carousel-container">
+        <div class="carousel-slide">
+            <img src="https://th.bing.com/th/id/OIP.lXuMr3dxbAPT0ucLQIMafQHaF0?rs=1&pid=ImgDetMain" alt="Monke 1">
+        </div>
+        <div class="carousel-slide">
+            <img src="https://th.bing.com/th/id/OIP.FD_gv5K_25MYiLmijRXwcgHaE7?rs=1&pid=ImgDetMain" alt="Monke 2">
+        </div>
+        <div class="carousel-slide">
+            <img src="https://th.bing.com/th/id/OIP.zNrd4O67q6LatRP_0vxYGAHaEc?rs=1&pid=ImgDetMain" alt="Monke 3">
+        </div>
+        <!-- Add more slides as needed -->
+        
+        <button class="prev-btn" onclick="moveSlide(-1)">❮</button>
+        <button class="next-btn" onclick="moveSlide(1)">❯</button>
+    </div>
+
     <div class="about-section">
         <h2>About Us</h2>
         <p>Our news website strives to deliver accurate and timely information on a wide range of topics, including politics, technology, entertainment, and more. We are committed to keeping you informed and engaged with the latest developments from around the globe.</p>
     </div>
 </div>
+
+<script src="{% static 'site.js' %}"></script>
 
 </body>
 </html>

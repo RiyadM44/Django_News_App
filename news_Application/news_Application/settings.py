@@ -12,15 +12,9 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
-# import mimetypes
-
-# mimetypes.add_type("text/css", ".css", True)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-# BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-# BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
@@ -30,7 +24,6 @@ SECRET_KEY = 'django-insecure-8n!5il0%h6-691sp26y@(!-a3+kq_4&pzi5337p+#t))#9sh4_
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-# DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
@@ -136,20 +129,10 @@ CSRF_TRUSTED_ORIGINS = ['https://newsaggregator.upskillconnect.com']
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-# settings.py
-
-# STATIC_URL = '/static/'
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'django_news', 'static'),
 ]
-
-
-# STATIC_ROOT = '../static/'
-# STATIC_ROOT = 'news_Application/new_Application/static/'
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-# STATIC_ROOT = BASE_DIR / 'staticfiles'
-# STATIC_ROOT=/var/www/html/
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
