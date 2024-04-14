@@ -57,7 +57,10 @@ body {
 .image-container {
     display: flex;
     justify-content: space-between;
+    margin-left: 3px;
+    margin-right: 3px;
     margin-bottom: 20px;
+    height: 60%;
 }
 
 .image-container img {
