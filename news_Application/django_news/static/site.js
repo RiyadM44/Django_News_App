@@ -4,11 +4,11 @@ showSlides();
 function showSlides() {
     let slides = document.getElementsByClassName("carousel-slide");
     for (let i = 0; i < slides.length; i++) {
-        slides[i].style.left = "100%"; // Initially position slides outside container
+        slides[i].style.opacity = "0"; // Initially set opacity to 0
     }
     slideIndex++;
     if (slideIndex > slides.length) {slideIndex = 1}
-    slides[slideIndex-1].style.left = "0"; // Move current slide into view
+    slides[slideIndex-1].style.opacity = "1"; // Set opacity to 1 to show current slide
     setTimeout(showSlides, 4000); // Change image every 4 seconds
 }
 
@@ -18,10 +18,32 @@ function moveSlide(n) {
     if (slideIndex > slides.length) {slideIndex = 1}
     if (slideIndex < 1) {slideIndex = slides.length}
     for (let i = 0; i < slides.length; i++) {
-        slides[i].style.left = "100%"; // Move all slides outside container
+        slides[i].style.opacity = "0"; // Hide all slides
     }
-    slides[slideIndex-1].style.left = "0"; // Move current slide into view
+    slides[slideIndex-1].style.opacity = "1"; // Show current slide
 }
+
+// function showSlides() {
+//     let slides = document.getElementsByClassName("carousel-slide");
+//     for (let i = 0; i < slides.length; i++) {
+//         slides[i].style.left = "100%"; // Initially position slides outside container
+//     }
+//     slideIndex++;
+//     if (slideIndex > slides.length) {slideIndex = 1}
+//     slides[slideIndex-1].style.left = "0"; // Move current slide into view
+//     setTimeout(showSlides, 4000); // Change image every 4 seconds
+// }
+
+// function moveSlide(n) {
+//     slideIndex += n;
+//     let slides = document.getElementsByClassName("carousel-slide");
+//     if (slideIndex > slides.length) {slideIndex = 1}
+//     if (slideIndex < 1) {slideIndex = slides.length}
+//     for (let i = 0; i < slides.length; i++) {
+//         slides[i].style.left = "100%"; // Move all slides outside container
+//     }
+//     slides[slideIndex-1].style.left = "0"; // Move current slide into view
+// }
 
 // let slideIndex = 0;
 // showSlides();

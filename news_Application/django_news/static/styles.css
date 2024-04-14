@@ -121,10 +121,16 @@ body {
     overflow: hidden;
 }
 
+/* .carousel-slide {
+    position: absolute;
+    width: 100%;
+    transition: left 0.5s ease;
+}*/
+
 .carousel-slide {
     position: absolute;
     width: 100%;
-    transition: left 0.5s ease; /* Transition for sliding effect */
+    transition: opacity 0.5s ease; /* Transition for fade in/out effect */
 }
 
 .carousel-slide img {
