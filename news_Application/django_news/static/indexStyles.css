@@ -147,6 +147,6 @@ body {
     display: flex;
     justify-content: center; /* Center the video horizontally */
     align-items: center; /* Center the video vertically */
-    height: 100vh; /* Make the container full height of the viewport */
+    height: 50vh; /* Make the container full height of the viewport */
 }
 
