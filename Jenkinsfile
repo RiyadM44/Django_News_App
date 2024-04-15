@@ -30,9 +30,18 @@ pipeline {
                         sh '''
                             ssh -o StrictHostKeyChecking=no ubuntu@18.185.48.217 '
                                 cd Django_News_App/news_Application &&
-                                python3 manage.py test
-                            '
-                        '''
+                                python3 manage.py test &&
+                                STATUS_CODE=$(curl -Is https://newsaggregator.upskillconnect.com/ | awk '/HTTP/ {print $2}') &&
+                                if [ "$STATUS_CODE" == "200" ]; then
+                                    echo "Code 200 Success First Instance"
+                                else
+                                    docker stop ry || true &&
+                                    docker rm ry || true &&
+                                    docker rmi riyadm44/djangonewsimage || true &&
+                                    echo "Code 200 Failed"
+                                    exit 1
+                                fi
+                            '''
                     }
                 }
             }
@@ -66,12 +75,24 @@ pipeline {
                         sh '''
                             ssh -o StrictHostKeyChecking=no ubuntu@3.67.186.141 '
                                 cd Django_News_App/news_Application &&
-                                python3 manage.py test
-                            '
-                        '''
+                                python3 manage.py test &&
+                                STATUS_CODE=$(curl -Is https://newsaggregator.upskillconnect.com/ | awk '/HTTP/ {print $2}') &&
+                                if [ "$STATUS_CODE" == "200" ]; then
+                                    echo "Code 200 Success Second Instance"
+                                else
+                                    docker stop ry || true &&
+                                    docker rm ry || true &&
+                                    docker rmi riyadm44/djangonewsimage || true &&
+                                    echo "Code 200 Failed"
+                                    exit 1
+                                fi
+                            '''
+                        if (sh.returnStatus != 0) {
+                            error 'Failed: HTTP status code is not 200'
+                        }
                     }
                 }
             }
-        }        
+        }      
     }
 }
