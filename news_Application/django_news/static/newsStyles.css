@@ -101,3 +101,34 @@ button:hover {
 .add-news-form {
     display: none;
 }
+/* Navigation bar styles */
+.navbar {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-left {
+    font-size: 24px;
+    color: #fff; /* Keep the text color the same */
+    text-decoration: none; /* Remove underline */
+}
+
+.navbar-middle {
+    text-align: center;
+}
+
+.navbar-middle a {
+    margin: 0 20px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.navbar-middle a:hover {
+    color: #ddd;
+    text-decoration: none; /* Optional: Add underline effect on hover */
+}

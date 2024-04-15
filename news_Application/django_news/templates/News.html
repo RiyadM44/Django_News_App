@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>News Menu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'newsStyles.css' %}">
+    <title>News Feed</title>
 </head>
 <body>
     <div class="navbar">
@@ -14,27 +16,13 @@
             <a href="{% url 'home' %}">News</a>
         </div>
     </div> 
-    <p>Hi</p>
-</body>
-</html>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="{% static 'newsStyles.css' %}">
-    <title>News Feed</title>
-</head>
-<body>
  
-<div class="container">
-    <header>
-        <h1>News Feed</h1>
-        <p>Welcome to our news website. Stay updated with the latest news about Tesla and more!</p>
-        <button onclick="toggleAddForm()"><i class="fas fa-plus"></i> Add News</button> <!-- Added add news button with Font Awesome icon -->
-    </header>
+    <div class="container">
+        <header>
+            <h1>News Feed</h1>
+            <p>Welcome to our news website. Stay updated with the latest news about Tesla and more!</p>
+            <button onclick="toggleAddForm()"><i class="fas fa-plus"></i> Add News</button> <!-- Added add news button with Font Awesome icon -->
+        </header>
  
     <!-- Add News Form -->
     <form id="addNewsForm" class="add-news-form" onsubmit="addNews(event)">
