@@ -1,14 +1,26 @@
 # views.py
 from django.shortcuts import render, redirect
 from .forms import ImageUploadForm
+import requests
 # from django.http import JsonResponse
 
 def save_text_input(request):
     return render(request, 'index.html')
 
-def show_news(request):
-    # Add any necessary logic here
-    return render(request, 'News.html')
+# def show_news(request):
+#     # Add any necessary logic here
+#     return render(request, 'News.html')
+
+def home(request):
+    query = request.GET.get('query')  # Get the search query from the request
+    api_key = 'fbc50f8083bb4dada1367e8345947f14'
+    url = f'https://newsapi.org/v2/everything?q={query}&from=2024-03-15&sortBy=publishedAt&apiKey={api_key}'
+    response = requests.get(url)
+    response.raise_for_status()
+    data = response.json()
+    articles = data.get('articles', [])
+ 
+    return render(request, 'News.html', {'articles': articles, 'query': query})
 
 def upload_image(request):
     if request.method == 'POST':
