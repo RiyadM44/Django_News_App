@@ -6,7 +6,7 @@ pipeline {
                 script {
                     // Execute SSH command and wait for completion
                     sshagent(['ssh-agent']) {
-                        def sshResult = sh(script: '''
+                        def sshResult = sh(script: """
                             ssh -o StrictHostKeyChecking=no ubuntu@18.185.48.217 '
                                 docker stop ry || true &&
                                 docker rm ry || true &&
@@ -15,7 +15,7 @@ pipeline {
                                 docker run -d -p 8000:8000 --name ry riyadm44/djangonewsimage &&
                                 cd Django_News_App/ &&
                                 git pull origin main '
-                            ''', returnStatus: true)
+                            """, returnStatus: true)
                         if (sshResult != 0) {
                             error "SSH connection failed"
                         }
@@ -27,7 +27,7 @@ pipeline {
             steps {
                 script {
                     sshagent(['ssh-agent']) {
-                        sh '''
+                        sh """
                             ssh -o StrictHostKeyChecking=no ubuntu@18.185.48.217 '
                                 cd Django_News_App/news_Application &&
                                 python3 manage.py test &&
@@ -41,7 +41,8 @@ pipeline {
                                     echo "Code 200 Failed"
                                     exit 1
                                 fi
-                            '''
+                            '
+                        """
                     }
                 }
             }
@@ -51,7 +52,7 @@ pipeline {
                 script {
                     // Execute SSH command and wait for completion
                     sshagent(['ssh-agent']) {
-                        def sshResult = sh(script: '''
+                        def sshResult = sh(script: """
                             ssh -o StrictHostKeyChecking=no ubuntu@3.67.186.141 '
                                 docker stop ry || true &&
                                 docker rm ry || true &&
@@ -60,7 +61,7 @@ pipeline {
                                 docker run -d -p 8000:8000 --name ry riyadm44/djangonewsimage &&
                                 cd Django_News_App/ &&
                                 git pull origin main ' 
-                            ''', returnStatus: true)
+                            """, returnStatus: true)
                         if (sshResult != 0) {
                             error "SSH connection failed"
                         }
@@ -72,7 +73,7 @@ pipeline {
             steps {
                 script {
                     sshagent(['ssh-agent']) {
-                        sh '''
+                        sh """
                             ssh -o StrictHostKeyChecking=no ubuntu@3.67.186.141 '
                                 cd Django_News_App/news_Application &&
                                 python3 manage.py test &&
@@ -86,7 +87,8 @@ pipeline {
                                     echo "Code 200 Failed"
                                     exit 1
                                 fi
-                            '''
+                            '
+                        """
                         if (sh.returnStatus != 0) {
                             error 'Failed: HTTP status code is not 200'
                         }
