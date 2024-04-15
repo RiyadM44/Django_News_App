@@ -14,10 +14,7 @@ pipeline {
                                 docker pull riyadm44/djangonewsimage:latest &&
                                 docker run -d -p 8000:8000 --name ry riyadm44/djangonewsimage &&
                                 cd Django_News_App/ &&
-                                git pull origin main &&
-                                cd news_Application/ &&
-                                python3 manage.py makemigrations &&
-                                python3 manage.py migrate'
+                                git pull origin main '
                             ''', returnStatus: true)
                         if (sshResult != 0) {
                             error "SSH connection failed"
@@ -26,12 +23,12 @@ pipeline {
                 }
             }
         } 
-        stage('Run Tests First ') {
+        stage('Run Tests First Instance') {
             steps {
                 script {
                     sshagent(['ssh-agent']) {
                         sh '''
-                            ssh -o StrictHostKeyChecking=no ubuntu@3.67.186.141 '
+                            ssh -o StrictHostKeyChecking=no ubuntu@18.185.48.217 '
                                 cd Django_News_App/news_Application &&
                                 python3 manage.py test
                             '
@@ -62,7 +59,7 @@ pipeline {
                 }
             }
         }
-        stage('Run Tests') {
+        stage('Run Tests Second Instance') {
             steps {
                 script {
                     sshagent(['ssh-agent']) {
