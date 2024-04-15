@@ -47,6 +47,20 @@ pipeline {
                     }
                 }
             }
+        }
+        stage('Run Tests') {
+            steps {
+                script {
+                    sshagent(['ssh-agent']) {
+                        sh '''
+                            ssh -o StrictHostKeyChecking=no ubuntu@3.67.186.141 '
+                                cd Django_News_App/news_Application &&
+                                python3 manage.py test
+                            '
+                        '''
+                    }
+                }
+            }
         }        
     }
 }
