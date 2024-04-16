@@ -14,7 +14,9 @@ pipeline {
                                 docker pull riyadm44/djangonewsimage:latest &&
                                 docker run -d -p 8000:8000 --name ry riyadm44/djangonewsimage &&
                                 cd Django_News_App/ &&
-                                git pull origin main '
+                                git stash &&
+                                git pull origin main &&
+                                git stash apply '
                             """, returnStatus: true)
                         if (sshResult != 0) {
                             error "SSH connection failed"
