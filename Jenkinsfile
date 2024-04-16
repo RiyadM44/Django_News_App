@@ -7,7 +7,7 @@ pipeline {
                     // Execute SSH command and wait for completion
                     sshagent(['ssh-agent']) {
                         def sshResult = sh(script: """
-                            ssh -o StrictHostKeyChecking=no ubuntu@18.185.48.217 '
+                            ssh -o StrictHostKeyChecking=no ubuntu@18.184.77.193 '
                                 docker stop ry || true &&
                                 docker rm ry || true &&
                                 docker rmi riyadm44/djangonewsimage || true &&
@@ -28,11 +28,11 @@ pipeline {
                 script {
                     sshagent(['ssh-agent']) {
                         sh """
-                            ssh -o StrictHostKeyChecking=no ubuntu@18.185.48.217 '
+                            ssh -o StrictHostKeyChecking=no ubuntu@18.184.77.193 '
                                 cd Django_News_App/news_Application &&
                                 python3 manage.py test &&
-                                STATUS_CODE=$(curl -Is https://newsaggregator.upskillconnect.com/ | awk '/HTTP/ {print $2}') &&
-                                if [ "$STATUS_CODE" == "200" ]; then
+                                STATUS_CODE=\$(curl -Is https://newsaggregator.upskillconnect.com/ | awk '/HTTP/ {print \$2}') &&
+                                if [ "\$STATUS_CODE" == "200" ]; then
                                     echo "Code 200 Success First Instance"
                                 else
                                     docker stop ry || true &&
@@ -53,7 +53,7 @@ pipeline {
                     // Execute SSH command and wait for completion
                     sshagent(['ssh-agent']) {
                         def sshResult = sh(script: """
-                            ssh -o StrictHostKeyChecking=no ubuntu@3.67.186.141 '
+                            ssh -o StrictHostKeyChecking=no ubuntu@3.69.241.130 '
                                 docker stop ry || true &&
                                 docker rm ry || true &&
                                 docker rmi riyadm44/djangonewsimage || true &&
@@ -74,11 +74,11 @@ pipeline {
                 script {
                     sshagent(['ssh-agent']) {
                         sh """
-                            ssh -o StrictHostKeyChecking=no ubuntu@3.67.186.141 '
+                            ssh -o StrictHostKeyChecking=no ubuntu@3.69.241.130 '
                                 cd Django_News_App/news_Application &&
                                 python3 manage.py test &&
-                                STATUS_CODE=$(curl -Is https://newsaggregator.upskillconnect.com/ | awk '/HTTP/ {print $2}') &&
-                                if [ "$STATUS_CODE" == "200" ]; then
+                                STATUS_CODE=\$(curl -Is https://newsaggregator.upskillconnect.com/ | awk '/HTTP/ {print \$2}') &&
+                                if [ "\$STATUS_CODE" == "200" ]; then
                                     echo "Code 200 Success Second Instance"
                                 else
                                     docker stop ry || true &&
