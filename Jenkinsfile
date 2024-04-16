@@ -26,7 +26,8 @@ pipeline {
         stage('Run Tests First Instance') {
             steps {
                 script {
-                    def STATUS_CODE = sh(script: 'curl -I https://newsaggregator.upskillconnect.com/ | grep "HTTP" | grep "200" | awk \'{print $2}\'', returnStdout: true).trim()
+                    def STATUS_CODE = sh(script: 'curl -s -o /dev/null -w "%{http_code}" https://newsaggregator.upskillconnect.com/', returnStdout: true).trim()
+                    // def STATUS_CODE = sh(script: 'curl -I https://newsaggregator.upskillconnect.com/ | grep "HTTP" | grep "200" | awk \'{print $2}\'', returnStdout: true).trim()
 
                     sshagent(['ssh-agent']) {
                         sh """
@@ -74,7 +75,8 @@ pipeline {
         stage('Run Tests Second Instance') {
             steps {
                 script {
-                    def STATUS_CODE = sh(script: 'curl -I https://newsaggregator.upskillconnect.com/ | grep "HTTP" | grep "200" | awk \'{print $2}\'', returnStdout: true).trim()
+                    def STATUS_CODE = sh(script: 'curl -s -o /dev/null -w "%{http_code}" https://newsaggregator.upskillconnect.com/', returnStdout: true).trim()
+                    // def STATUS_CODE = sh(script: 'curl -I https://newsaggregator.upskillconnect.com/ | grep "HTTP" | grep "200" | awk \'{print $2}\'', returnStdout: true).trim()
 
                     sshagent(['ssh-agent']) {
                         sh """
