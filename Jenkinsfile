@@ -31,7 +31,7 @@ pipeline {
                             ssh -o StrictHostKeyChecking=no ubuntu@18.184.77.193 '
                                 cd Django_News_App/news_Application &&
                                 python3 manage.py test &&
-                                STATUS_CODE=$(curl -Is https://newsaggregator.upskillconnect.com/ | awk '/HTTP/ {print $2}') &&
+                                STATUS_CODE=\$(curl -Is https://newsaggregator.upskillconnect.com/ | awk '/HTTP/ {print \$2}') &&
                                 if [ "\$STATUS_CODE" == "200" ]; then
                                     echo "Code 200 Success First Instance"
                                 else
@@ -46,7 +46,7 @@ pipeline {
                     }
                 }
             }
-        } 
+        }
         stage('Deploy on Second Instance') {
             steps {
                 script {
