@@ -26,12 +26,14 @@ pipeline {
         stage('Run Tests First Instance') {
             steps {
                 script {
+                    def STATUS_CODE = sh(script: 'curl -I https://newsaggregator.upskillconnect.com/ | grep "HTTP" | grep "200" | awk \'{print $2}\'', returnStdout: true).trim()
+
                     sshagent(['ssh-agent']) {
                         sh """
                             ssh -o StrictHostKeyChecking=no ubuntu@18.184.77.193 '
                                 cd Django_News_App/news_Application &&
                                 python3 manage.py test &&
-                                STATUS_CODE=\$(curl -Is https://newsaggregator.upskillconnect.com/ | awk '/HTTP/ {print \$2}') &&
+                                STATUS_CODE=$STATUS_CODE &&
                                 if [ "\$STATUS_CODE" == "200" ]; then
                                     echo "Code 200 Success First Instance"
                                 else
