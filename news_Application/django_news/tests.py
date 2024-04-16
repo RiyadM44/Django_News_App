@@ -24,3 +24,4 @@ class AddNewsFormTestCase(TestCase):
         self.assertEqual(final_news_count, initial_news_count + 1, f"Expected {initial_news_count + 1} news items after form submission, but found {final_news_count}.")
 
 # Create your tests here.
+
