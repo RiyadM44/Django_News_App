@@ -75,9 +75,12 @@ body {
     margin-bottom: 10px;
 }
 
-.about-section p {
-    font-size: 16px;
-    color: #666;
+.about-section {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 @media screen and (max-width: 768px) {

@@ -74,14 +74,16 @@ pipeline {
         stage('Run Tests Second Instance') {
             steps {
                 script {
+                    def STATUS_CODE = sh(script: 'curl -I https://newsaggregator.upskillconnect.com/ | grep "HTTP" | grep "200" | awk \'{print $2}\'', returnStdout: true).trim()
+
                     sshagent(['ssh-agent']) {
                         sh """
                             ssh -o StrictHostKeyChecking=no ubuntu@3.69.241.130 '
                                 cd Django_News_App/news_Application &&
                                 python3 manage.py test &&
-                                STATUS_CODE=\$(curl -Is https://newsaggregator.upskillconnect.com/ | awk '/HTTP/ {print \$2}') &&
+                                STATUS_CODE=$STATUS_CODE &&
                                 if [ "\$STATUS_CODE" == "200" ]; then
-                                    echo "Code 200 Success Second Instance"
+                                    echo "Code 200 Success First Instance"
                                 else
                                     docker stop ry || true &&
                                     docker rm ry || true &&
@@ -91,9 +93,6 @@ pipeline {
                                 fi
                             '
                         """
-                        if (sh.returnStatus != 0) {
-                            error 'Failed: HTTP status code is not 200'
-                        }
                     }
                 }
             }
