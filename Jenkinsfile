@@ -7,7 +7,7 @@ pipeline {
                     // Execute SSH command and wait for completion
                     sshagent(['ssh-agent']) {
                         def sshResult = sh(script: """
-                            ssh -o StrictHostKeyChecking=no ubuntu@18.184.77.193 '
+                            ssh -o StrictHostKeyChecking=no ubuntu@3.127.247.179 '
                                 docker stop ry || true &&
                                 docker rm ry || true &&
                                 docker rmi riyadm44/djangonewsimage || true &&
@@ -31,7 +31,7 @@ pipeline {
 
                     sshagent(['ssh-agent']) {
                         sh """
-                            ssh -o StrictHostKeyChecking=no ubuntu@18.184.77.193 '
+                            ssh -o StrictHostKeyChecking=no ubuntu@3.127.247.179 '
                                 cd Django_News_App/news_Application &&
                                 python3 manage.py test &&
                                 STATUS_CODE=$STATUS_CODE &&
@@ -56,7 +56,7 @@ pipeline {
                     // Execute SSH command and wait for completion
                     sshagent(['ssh-agent']) {
                         def sshResult = sh(script: """
-                            ssh -o StrictHostKeyChecking=no ubuntu@3.69.241.130 '
+                            ssh -o StrictHostKeyChecking=no ubuntu@3.72.64.113 '
                                 docker stop ry || true &&
                                 docker rm ry || true &&
                                 docker rmi riyadm44/djangonewsimage || true &&
@@ -80,7 +80,7 @@ pipeline {
 
                     sshagent(['ssh-agent']) {
                         sh """
-                            ssh -o StrictHostKeyChecking=no ubuntu@3.69.241.130 '
+                            ssh -o StrictHostKeyChecking=no ubuntu@3.72.64.113 '
                                 cd Django_News_App/news_Application &&
                                 python3 manage.py test &&
                                 STATUS_CODE=$STATUS_CODE &&

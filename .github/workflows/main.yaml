@@ -30,4 +30,4 @@ jobs:
           curl -X POST \
             -u RY:118b75432f9d86fb1abb4a11a7821d04ed \
             -d '' \
-            http://18.159.111.49:8080/job/RY/build 
+            http://18.159.215.95:8080/job/RY/build 
