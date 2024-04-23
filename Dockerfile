@@ -22,5 +22,5 @@ COPY . /app/
 EXPOSE 8000
 
 # Define the command to run your Django app 
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["python3", "news_Application/manage.py", "runserver", "0.0.0.0:8000"]
 #CMD ["python3", "news_Application/manage.py", "runserver", "0.0.0.0:8000"]
