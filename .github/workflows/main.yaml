@@ -19,6 +19,9 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_TOKEN }}
 
+      - name: Change directory to news_Application
+        run: cd news_Application
+
       - name: Build Docker image
         run: docker build -t riyadm44/djangonewsimage:latest .
 
