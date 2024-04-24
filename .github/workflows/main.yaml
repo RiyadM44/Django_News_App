@@ -28,9 +28,15 @@ jobs:
       - name: Push Docker image
         run: docker push riyadm44/djangonewsimage:latest
 
-      - name: Trigger Jenkins Pipeline
-        run: |
-          curl -X POST \
-            -u RY:118b75432f9d86fb1abb4a11a7821d04ed \
-            -d '' \
-            http://18.159.215.95:8080/job/RY/build 
+      - name: SSH into EC2 instance and update Docker container
+        uses: appleboy/ssh-action@master
+        with:
+          host: 35.158.71.215
+          username: ubuntu
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+          script: |
+            sudo docker pull riyadm44/djangonewsimage:latest
+            sudo docker stop ry
+            sudo docker rm ry
+            sudo docker run -d -p 8000:8000 --name ry riyadm44/djangonewsimage
