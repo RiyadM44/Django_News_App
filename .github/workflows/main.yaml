@@ -39,4 +39,4 @@ jobs:
             sudo docker pull riyadm44/djangonewsimage:latest
             sudo docker stop ry
             sudo docker rm ry
-            sudo docker run -d -p 80:8000 --name ry riyadm44/djangonewsimage
+            sudo docker run -d -p 8000:8000 --name ry riyadm44/djangonewsimage
